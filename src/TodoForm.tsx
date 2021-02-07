@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import {addTodo} from './store';
 
 export default () => {
   const [content, setContent] = useState<string>(null);
 
   const onPress = () => {
     setContent(null);
+    addTodo(content);
   };
+
   return (
     <View
       style={{
