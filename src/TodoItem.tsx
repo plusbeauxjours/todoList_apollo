@@ -1,7 +1,12 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
+import {Todo} from './store';
 
-export default (): React.FC => {
+interface IProps {
+  todo: Todo;
+}
+
+export default ({todo}): React.FC<IProps> => {
   const removeContentFn = () => {};
 
   return (
@@ -9,11 +14,12 @@ export default (): React.FC => {
       style={{
         flexDirection: 'row',
         justifyContent: 'space-between',
-        width: '100%',
-        paddingHorizontal: 30,
-        marginVertical: 5,
+        alignItems: 'center',
+        width: 200,
+        paddingHorizontal: 10,
+        marginVertical: 10,
       }}>
-      <Text>CONTENT</Text>
+      <Text style={{color: 'red', fontSize: 16}}>{todo.content}</Text>
       <TouchableOpacity onPress={() => removeContentFn()}>
         <Text>❌</Text>
       </TouchableOpacity>
