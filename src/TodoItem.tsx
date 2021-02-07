@@ -1,13 +1,15 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import {Todo} from './store';
+import {Todo, deleteTodo} from './store';
 
 interface IProps {
   todo: Todo;
 }
 
 export default ({todo}): React.FC<IProps> => {
-  const removeContentFn = () => {};
+  const removeContentFn = () => {
+    deleteTodo(todo.id);
+  };
 
   return (
     <View

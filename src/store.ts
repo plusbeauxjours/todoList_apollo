@@ -19,6 +19,15 @@ export const addTodo = (content: string) => {
     todoIdCounterVar(prevId + 1);
 }
 
+export const deleteTodo = (id: number) => {
+    const currentTodo = [...todoVar()]
+    const deleteIndex = currentTodo.findIndex((todo) => todo.id === id)
+    if (deleteIndex === -1) return;
+    currentTodo.splice(deleteIndex, 1);
+
+    todoVar(currentTodo)
+}
+
 export const getTodos = {
     read() {
         return todoVar();
@@ -34,3 +43,4 @@ export const getTodosCounter = {
         // todoVar(data)와 같이 인자를 넣으면 해당인자의 값으로 업데이트 된다.
     }
 }
+
